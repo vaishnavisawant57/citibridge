@@ -76,5 +76,4 @@ class ExcelPage extends Component {
     );
   }
 }
-
 export default ExcelPage;

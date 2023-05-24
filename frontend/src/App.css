@@ -97,18 +97,25 @@ span {
 
 .transactions {
   width: 100%;
-  border-collapse: separate;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
 }
 
 .heading {
-  background-color: #f2f2f2;
+  background-color: #f0f0f0;
   font-weight: bold;
 }
 
-.data-row {
-  color: #871313;
+.data-row:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.data-row:nth-child(even) {
-  color: #1ea05b;
+.data-row:hover {
+  background-color: #ebebeb;
+}
+
+.transactions th,
+.transactions td {
+  padding: 8px;
+  border: 1px solid #ccc;
 }
