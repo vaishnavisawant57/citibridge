@@ -94,3 +94,21 @@
 span {
   margin-left: 16px;
 }
+
+.transactions {
+  width: 100%;
+  border-collapse: separate;
+}
+
+.heading {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.data-row {
+  color: #871313;
+}
+
+.data-row:nth-child(even) {
+  color: #1ea05b;
+}

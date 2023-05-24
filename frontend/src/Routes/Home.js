@@ -1,6 +1,6 @@
 import React from "react";
-import ExcelPage from "../Components/file_upload.js";
+import FilePage from "../Components/file_upload.js";
 function Home() {
-  return <ExcelPage />;
+  return <FilePage />;
 }
 export default Home;

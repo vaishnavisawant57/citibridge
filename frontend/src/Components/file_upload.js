@@ -1,82 +1,80 @@
 import React, { Component } from "react";
+import { OutTable, ExcelRenderer } from "react-excel-renderer";
 
-class FilePage extends Component {
+class ExcelPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fileContents: "",
+      rows: [],
+      cols: [],
     };
     this.fileInputRef = React.createRef();
   }
-
   handleButtonClick = () => {
     this.fileInputRef.current.click();
   };
+  fileHandler = (event) => {
+    let fileObj = event.target.files[0];
 
-  handleFileChosen = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const contents = reader.result;
-        this.setState({ fileContents: contents });
-      };
-      reader.readAsText(file);
-    }
+    //just pass the fileObj as parameter
+    ExcelRenderer(fileObj, (err, resp) => {
+      if (err) {
+        console.log(err);
+      } else {
+        this.setState({
+          cols: resp.cols,
+          rows: resp.rows,
+        });
+      }
+    });
   };
-
   render() {
+    const { rows, cols } = this.state;
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          background: "#f0f0f0",
-        }}
-      >
-        <button
-          style={{
-            padding: "16px 32px",
-            fontSize: "24px",
-            borderRadius: "8px",
-            background: "#ff4081",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer",
-            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.3)",
-            marginBottom: "16px",
-          }}
-          onClick={this.handleButtonClick}
-        >
-          Upload File
-        </button>
-        <input
-          ref={this.fileInputRef}
-          style={{ display: "none" }}
-          type="file"
-          onChange={this.handleFileChosen}
-        />
+      <div>
         <div
           style={{
-            padding: "16px",
-            backgroundColor: "#fff",
-            borderRadius: "8px",
-            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.3)",
-            width: "400px",
-            maxHeight: "400px",
-            overflow: "auto",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            background: "#f0f0f0",
           }}
         >
-          <pre style={{ whiteSpace: "pre-wrap", margin: "0" }}>
-            {this.state.fileContents}
-          </pre>
+          <button
+            style={{
+              padding: "16px 32px",
+              fontSize: "24px",
+              borderRadius: "8px",
+              background: "#146C94",
+              color: "#fff",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.3)",
+              marginBottom: "16px",
+            }}
+            onClick={this.handleButtonClick}
+          >
+            Select File
+          </button>
+          <input
+            ref={this.fileInputRef}
+            type="file"
+            onChange={this.fileHandler.bind(this)}
+            style={{ display: "none" }}
+          />
+          <OutTable
+            data={this.state.rows}
+            columns={this.state.cols}
+            tableClassName="transactions"
+            tableHeaderRowClass="heading"
+            tableBodyRowClass="data-row"
+          />
         </div>
       </div>
     );
   }
 }
 
-export default FilePage;
+export default ExcelPage;
