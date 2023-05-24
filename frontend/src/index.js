@@ -1,11 +1,64 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+  Outlet,
+  createRoutesFromElements,
+} from "react-router-dom";
+import Valid from "./Routes/Valid";
+import Home from "./Routes/Home";
+import Invalid from "./Routes/Invalid";
+import All from "./Routes/All";
+import Navbar from "./Components/navs";
+import "./App.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const AppLayout = () => (
+  <>
+    <Navbar />
+    <Outlet />
+  </>
+);
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<AppLayout />}>
+      <Route path="/" element={<Home />} />
+      <Route path="/valid" element={<Valid />} />
+      <Route path="/invalid" element={<Invalid />} />
+      <Route path="/all" element={<All />} />
+    </Route>
+  )
+);
+
+/*const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children :[
+  
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "valid",
+    element: <Valid />,
+  },
+  {
+    path: "invalid",
+    element: <Invalid />,
+  },
+  {
+    path: "all",
+    element: <All />,
+  },
+]
+  }
+
+]);*/
+
+createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
 );
