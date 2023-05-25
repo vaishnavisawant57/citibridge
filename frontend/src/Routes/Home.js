@@ -1,6 +1,6 @@
 import React from "react";
-import FilePage from "../Components/file_upload.js";
+import FileUpload from "../Components/FileUpload.js";
 function Home() {
-  return <FilePage />;
+  return <FileUpload />;
 }
 export default Home;

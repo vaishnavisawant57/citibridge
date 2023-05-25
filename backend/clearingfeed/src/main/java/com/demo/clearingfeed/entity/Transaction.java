@@ -27,10 +27,7 @@ public class Transaction {
 		this.amount = amount;
 	}
 	
-	public Transaction() {
-		
-		
-	}
+	public Transaction() {}
 
 	public String getTransaction_ref_no() {
 		return transaction_ref_no;
