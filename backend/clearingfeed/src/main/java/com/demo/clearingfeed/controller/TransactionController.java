@@ -30,7 +30,7 @@ public class TransactionController {
 		this.transactionservice.save(file);
 		return ResponseEntity.ok(Map.of("message","file is uploaded data is saved to db"));
 	}
-	 
+	
 	@GetMapping("/transaction")
 	public List<Transaction> getAllProduct()
 	{
@@ -38,3 +38,4 @@ public class TransactionController {
 	}
 	
 }
+

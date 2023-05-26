@@ -4,8 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Transaction {
-
+public class TargetEntity {
 	@Id
 	private String transaction_ref_no;
 	private String date;
@@ -15,7 +14,7 @@ public class Transaction {
 	private String payee_name;
 	private String amount;
 	
-	public Transaction(String transaction_ref_no, String date, String payer_account, String payer_name,
+	public TargetEntity(String transaction_ref_no, String date, String payer_account, String payer_name,
 			String payee_account, String payee_name, String amount) {
 		
 		this.transaction_ref_no = transaction_ref_no;
@@ -27,7 +26,7 @@ public class Transaction {
 		this.amount = amount;
 	}
 	
-	public Transaction() {
+	public TargetEntity() {
 		
 		
 	}
@@ -87,7 +86,6 @@ public class Transaction {
 	public void setAmount(String account) {
 		this.amount = account;
 	}
-	
 	
 	
 }
