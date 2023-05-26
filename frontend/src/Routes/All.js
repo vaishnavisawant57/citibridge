@@ -1,6 +1,6 @@
 import React from "react";
-import TableExample from "../Components/table.js";
+import AllTransactions from "../Components/allTransactions.js";
 function All() {
-  return <TableExample />;
+  return <AllTransactions />;
 }
 export default All;
