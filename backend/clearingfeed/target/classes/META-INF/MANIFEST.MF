@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Build-Jdk-Spec: 17
 Implementation-Title: clearingfeed
 Implementation-Version: 0.0.1-SNAPSHOT
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Build-Jdk-Spec: 17
-Implementation-Title: clearingfeed
-Implementation-Version: 0.0.1-SNAPSHOT
-Created-By: Maven Integration for Eclipse
-
->>>>>>> de2269f867db4835bc2d9782632b27896053a72f

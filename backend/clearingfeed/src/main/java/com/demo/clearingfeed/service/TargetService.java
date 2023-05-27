@@ -46,6 +46,10 @@ public class TargetService {
 	       return  targetRepository.saveAll(targets);
 	    }
 
+	    public List<TargetEntity> getAllTransactions()
+		{
+			return this.targetRepository.findAll();
+		}
 		
 	    
 	 //   void saveAll(List<TargetEntity> targets);

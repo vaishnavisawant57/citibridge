@@ -1,5 +1,8 @@
 package com.demo.clearingfeed.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -24,12 +27,21 @@ public class TransactionController {
 	
 	@Autowired
 	private TransactionService transactionservice;
+	ArrayList<ArrayList<Transaction>> validatedTransactions = new ArrayList<ArrayList<Transaction>>();
 	
 	@PostMapping("/transaction/upload")
 	public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file){
 		this.transactionservice.save(file);
+		try {
+			validatedTransactions = transactionservice.validate((ArrayList<Transaction>) transactionservice.getAllTransactions());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return ResponseEntity.ok(Map.of("message","file is uploaded data is saved to db"));
-	}
+		
+		}
 	
 	@GetMapping("/transaction")
 	public List<Transaction> getAllProduct()
@@ -37,5 +49,28 @@ public class TransactionController {
 		return this.transactionservice.getAllTransactions();
 	}
 	
+	@GetMapping("/GetValidTransactions")
+	public ArrayList<Transaction> getValidTransactions()
+	{
+		if(validatedTransactions.isEmpty())
+		{
+			validatedTransactions.add(new ArrayList<Transaction>());
+			validatedTransactions.add(new ArrayList<Transaction>());
+		}
+			
+		return validatedTransactions.get(0);
+	}
+	
+	@GetMapping("/GetInvalidTransactions")
+	public ArrayList<Transaction> getInvalidTransactions()
+	{
+		if(validatedTransactions.isEmpty())
+		{
+			validatedTransactions.add(new ArrayList<Transaction>());
+			validatedTransactions.add(new ArrayList<Transaction>());
+		}
+			
+		return validatedTransactions.get(1);
+	}
 }
 
