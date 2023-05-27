@@ -1,9 +1,6 @@
 import React from "react";
-function Valid(){
-    return(
-        <div className="home">
-            <h1>Valid</h1>
-        </div>
-    )
+import ValidTransaction from "../Components/ValidTransactions.js";
+function All() {
+  return <ValidTransaction />;
 }
-export default Valid;
+export default All;

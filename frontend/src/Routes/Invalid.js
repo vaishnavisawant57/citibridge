@@ -1,9 +1,6 @@
 import React from "react";
-function Invalid(){
-    return(
-        <div className="home">
-            <h1>Invalid</h1>
-        </div>
-    )
+import InvalidTransaction from "../Components/InvalidTransactions.js";
+function All() {
+  return <InvalidTransaction />;
 }
-export default Invalid;
+export default All;
