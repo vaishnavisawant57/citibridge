@@ -29,6 +29,8 @@ public class TransactionService {
 	private TransactionRepo transactionRepo;
 	private TargetService targetService;
 	List<TargetEntity> prevTransactions=new ArrayList<TargetEntity>();
+	@Autowired
+	private TargetRepository targetRepo;
 
 	public void save(MultipartFile file) 
 	{
@@ -55,10 +57,10 @@ public class TransactionService {
 		// TODO validate each parameter of a transaction object 
 		String refNo = transaction.getTransaction_ref_no();
 		String date = transaction.getDate();
-		String payerName = transaction.getPayer_name();
 		String payerAccount = transaction.getPayer_account();
-		String payeeName = transaction.getPayee_name();
+		String payerName = transaction.getPayer_name();
 		String payeeAccount = transaction.getPayee_account();
+		String payeeName = transaction.getPayee_name();
 		double amount = Double.parseDouble(transaction.getAmount());
 		
 		//prevTransactions=targetService.getAllTransactions();
@@ -177,7 +179,7 @@ public class TransactionService {
 		validatedTransactions.add(invalidTransactions);
 
 		//save all valid transactions to database
-		//saveValidTransactions(validTransactions);
+		saveValidTransactions(validTransactions);
 		return validatedTransactions;
 	}
 	
@@ -189,7 +191,7 @@ public class TransactionService {
 			TargetEntity te=new TargetEntity(i.getTransaction_ref_no(),i.getDate(),i.getPayer_account(),i.getPayer_name(),i.getPayee_account(),i.getPayee_name(),i.getAmount());
 			list.add(te);
 		}
-		targetService.saveAll(list);
+		targetRepo.saveAll(list);
 
 	}
 
