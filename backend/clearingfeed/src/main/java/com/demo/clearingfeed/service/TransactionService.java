@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import java.util.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat; 
-
+import org.springframework.transaction.annotation.Transactional;
 import org.apache.commons.math3.stat.descriptive.summary.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -134,7 +134,6 @@ public class TransactionService {
 		String regex ="[0-9]{0,10}\\.[0-9]{0,2}";
 		Pattern pattern3 = Pattern.compile(regex);
 		String amounts = new DecimalFormat("#.00#").format(amount);
-		System.out.println(amounts);
 		Matcher matcher6 = pattern3.matcher(amounts);
 		if(!matcher6.matches() || amount<0)
 		{
@@ -185,6 +184,7 @@ public class TransactionService {
 		return validatedTransactions;
 	}
 	
+	@Transactional
 	public void saveValidTransactions(ArrayList<Transaction> validTransactions) throws IOException{
 		
 		List<TargetEntity> list=new ArrayList<TargetEntity>();
@@ -194,10 +194,6 @@ public class TransactionService {
 			list.add(te);
 		}
 		targetRepo.saveAll(list);
-
+		transactionRepo.deleteAll();
 	}
-
-
-	
-	
 }

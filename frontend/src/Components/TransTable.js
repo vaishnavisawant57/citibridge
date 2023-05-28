@@ -6,12 +6,12 @@ const TransTable = ({ transaction }) => {
       <thead>
         <tr>
           <th>Ref number</th>
-          <th>date</th>
-          <th>payer acc number</th>
-          <th>payer name</th>
-          <th>payee acc number</th>
-          <th>payee name</th>
-          <th>amount</th>
+          <th>Date</th>
+          <th>Payer Account Number</th>
+          <th>Payer Name</th>
+          <th>Payee Account Number</th>
+          <th>Payee Name</th>
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
