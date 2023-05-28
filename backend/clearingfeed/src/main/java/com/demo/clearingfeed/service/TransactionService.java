@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Date;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat; 
 
 import org.apache.commons.math3.stat.descriptive.summary.Product;
@@ -132,7 +133,8 @@ public class TransactionService {
 		//validate amount
 		String regex ="[0-9]{0,10}\\.[0-9]{0,2}";
 		Pattern pattern3 = Pattern.compile(regex);
-		String amounts = Double.toString(amount);
+		String amounts = new DecimalFormat("#.00#").format(amount);
+		System.out.println(amounts);
 		Matcher matcher6 = pattern3.matcher(amounts);
 		if(!matcher6.matches() || amount<0)
 		{
