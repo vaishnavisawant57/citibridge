@@ -37,7 +37,6 @@ public class TransactionController {
 		try {
 			Path path = Paths.get("src\\main\\resources\\archiveFolder\\"+fileName).toAbsolutePath();
 			file.transferTo(path.toFile());
-		
 			validatedTransactions = transactionservice.validate((ArrayList<Transaction>) transactionservice.getAllTransactions());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

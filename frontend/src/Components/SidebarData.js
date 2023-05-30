@@ -23,7 +23,7 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "All Transactions",
+    title: "Feed File",
     path: "/all",
     icons: <BsIcons.BsCheckAll />,
     cName: "nav-text",
