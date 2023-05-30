@@ -28,4 +28,10 @@ export const SidebarData = [
     icons: <BsIcons.BsCheckAll />,
     cName: "nav-text",
   },
+  {
+    title: "File Status",
+    path: "/filestatus",
+    icons: <BsIcons.BsCheckAll />,
+    cName: "nav-text",
+  },
 ];

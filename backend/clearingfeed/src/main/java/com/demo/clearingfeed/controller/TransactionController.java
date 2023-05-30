@@ -3,10 +3,13 @@ package com.demo.clearingfeed.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+
 import org.hibernate.resource.beans.internal.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import com.demo.clearingfeed.service.FileService;
 import com.demo.clearingfeed.service.TransactionService;
-
 import com.demo.clearingfeed.entity.Transaction;
+import com.demo.clearingfeed.entity.File;
+
 @RestController
 @CrossOrigin("*")
 public class TransactionController {
@@ -28,8 +32,11 @@ public class TransactionController {
 	
 	@Autowired
 	private TransactionService transactionservice;
-	ArrayList<ArrayList<Transaction>> validatedTransactions = new ArrayList<ArrayList<Transaction>>();
+	@Autowired
+	private FileService fileService;
 	
+	ArrayList<ArrayList<Transaction>> validatedTransactions = new ArrayList<ArrayList<Transaction>>();
+
 	@PostMapping("/transaction/upload")
 	public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file){
 		String fileName = file.getOriginalFilename();
@@ -38,6 +45,14 @@ public class TransactionController {
 			Path path = Paths.get("src\\main\\resources\\archiveFolder\\"+fileName).toAbsolutePath();
 			file.transferTo(path.toFile());
 			validatedTransactions = transactionservice.validate((ArrayList<Transaction>) transactionservice.getAllTransactions());
+			
+			long millis=System.currentTimeMillis();  
+	        Date dateObj = new Date(millis);
+	 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	 		String currentDate = formatter.format(dateObj);
+	 		
+	 		File newFile=new File(fileName,currentDate,"Validated");
+			this.fileService.save(newFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,12 +61,7 @@ public class TransactionController {
 		return ResponseEntity.ok(Map.of("message","file is uploaded data is saved to db"));
 		
 		}
-	
-	@GetMapping("/transaction")
-	public List<Transaction> getAllProduct()
-	{
-		return this.transactionservice.getAllTransactions();
-	}
+
 	
 	@GetMapping("/GetValidTransactions")
 	public ArrayList<Transaction> getValidTransactions()
@@ -75,6 +85,12 @@ public class TransactionController {
 		}
 			
 		return validatedTransactions.get(1);
+	}
+	
+	@GetMapping("/GetFileStatus")
+	public List<File> getFileStatus()
+	{
+		return this.fileService.getAllFiles();
 	}
 }
 
