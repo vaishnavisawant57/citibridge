@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.hibernate.resource.beans.internal.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,12 @@ public class TransactionController {
 	
 	@PostMapping("/transaction/upload")
 	public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file){
+		String fileName = file.getOriginalFilename();
 		this.transactionservice.save(file);
 		try {
+			Path path = Paths.get("src\\main\\resources\\archiveFolder\\"+fileName).toAbsolutePath();
+			file.transferTo(path.toFile());
+		
 			validatedTransactions = transactionservice.validate((ArrayList<Transaction>) transactionservice.getAllTransactions());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
