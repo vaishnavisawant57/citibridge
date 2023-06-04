@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./FileUpload.css";
-
+import Button from "@material-ui/core/Button";
 const FileUpload = () => {
   const [file, setFile] = useState();
   const [statusMessage, setStatusMessage] = useState({
@@ -51,46 +51,69 @@ const FileUpload = () => {
     }
   };
 
-  // render a simple input element with an onChange event listener that calls the handleFileUpload function
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "85vh",
-        background: "#f0f0f0",
-      }}
-    >
-      <div className="file-container ">
-        {file && <p>{file.name}</p>}
-        <label className="custom-file-upload">
-          <input
-            type="file"
-            onChange={handleFileUpload}
-            style={{
-              display: "none",
-            }}
-          />
-          Upload File
-        </label>
-        <button onClick={submitFile} className="button-36">
-          Check
-        </button>
+    <div className="homePage">
+      <div className="overlap">
+        <img className="group" alt={"Group"} src={"assets/group-6.png"} />
+        <div className="group-3">
+          <div className="title-bank">
+            <h1 className="text-wrapper">Clearing Feed Generator</h1>
+          </div>
+          <div className="description">
+            <p className="p">Upload with Confidence, Validate with Ease!</p>
+          </div>
+          <div className="validate">
+            <div className="upload">
+              <div className="overlap-group">
+                <label className="text-wrapper-2">
+                  <input
+                    type="file"
+                    onChange={handleFileUpload}
+                    style={{
+                      display: "none",
+                    }}
+                  />
+                  Upload
+                </label>
+              </div>
+            </div>
+            <div className="check">
+              <div className="overlap-group" onClick={submitFile}>
+                <div className="text-wrapper-2">Check</div>
+              </div>
+            </div>
+          </div>
+          {statusMessage.message && (
+            <p
+              className={`status-message ${
+                statusMessage.status === "success"
+                  ? "success-message"
+                  : "error-message"
+              }`}
+            >
+              {statusMessage.message}
+            </p>
+          )}
+        </div>
+        <img
+          className="iconphone"
+          alt={"Iconphone"}
+          src={"assets/iconphone-2.svg"}
+        />
+        <div className="ellipse-4" />
       </div>
+      <div className="overlap-group2">
+        <img
+          className="icon-bank"
+          alt={"Icon Bank"}
+          src="assets/icon-bank-2.svg"
+        />
+        <img className="img" alt={"Group"} src={"assets/group-5.png"} />
+      </div>
+      <div className="ellipse-1" />
 
-      {statusMessage.message && (
-        <p
-          className={`status-message ${
-            statusMessage.status === "success"
-              ? "success-message"
-              : "error-message"
-          }`}
-        >
-          {statusMessage.message}
-        </p>
-      )}
+      <div className="left"></div>
+      <div className="right"></div>
     </div>
   );
 };

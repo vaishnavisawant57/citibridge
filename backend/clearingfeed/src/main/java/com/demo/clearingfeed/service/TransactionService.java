@@ -81,6 +81,7 @@ public class TransactionService {
 		Matcher matcher1 = pattern1.matcher(refNo);
 		if(!(matcher1.matches()))
 		{
+			System.out.println(refNo);
 			System.out.println("Invalid Reference Number");
 			return false;
 		}
@@ -93,6 +94,7 @@ public class TransactionService {
  		
 		if(!(currentDate.equals(date)))
 		{
+			System.out.println(date);
 			System.out.println("Invalid Transaction Date");
 			return false;
 		}
@@ -102,6 +104,7 @@ public class TransactionService {
 		Matcher matcher2 = pattern2.matcher(payerName);
 		if(!(matcher2.matches()))
 		{
+			System.out.println(payerName);
 			System.out.println("Invalid Payer Name");
 			return false;
 		}
@@ -110,6 +113,7 @@ public class TransactionService {
 		Matcher matcher3 = pattern1.matcher(payerAccount);
 		if(!(matcher3.matches()))
 		{
+			System.out.println(payeeAccount);
 			System.out.println("Invalid Payer Account");
 			return false;
 		}
@@ -118,6 +122,7 @@ public class TransactionService {
 		Matcher matcher4 = pattern2.matcher(payeeName);
 		if(!(matcher4.matches()))
 		{
+			System.out.println(payeeName);
 			System.out.println("Invalid Payee Name");
 			return false;
 		}
@@ -126,6 +131,7 @@ public class TransactionService {
 		Matcher matcher5 = pattern1.matcher(payeeAccount);
 		if(!(matcher5.matches()))
 		{
+			System.out.println(payeeAccount);
 			System.out.println("Invalid Payee Account");
 			return false;
 		}
@@ -137,6 +143,7 @@ public class TransactionService {
 		Matcher matcher6 = pattern3.matcher(amounts);
 		if(!matcher6.matches() || amount<0)
 		{
+			System.out.println(amount);
 			System.out.println("Invalid Amount");
 			return false;
 		}
