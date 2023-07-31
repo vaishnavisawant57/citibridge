@@ -1,189 +1,63 @@
-.homePage {
-  background-color: #ffffff;
+/* <button class="button-19" role="button">Button 19</button> */
+
+.file-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
 }
-.homePage .div {
-  background-color: #ffffff;
-  border: 1px none;
-  height: 550px;
-  overflow: hidden;
-  position: relative;
-  width: 1377px;
-}
-.homePage .overlap {
-  height: 509px;
-  left: 345px;
-  position: absolute;
-  top: -134px;
-  width: 900px;
-}
-.homePage .group {
-  height: 400px;
-  left: 0;
-  position: absolute;
-  top: 200px;
-  width: 693px;
-}
-.homePage .ellipse {
-  height: 674px;
-  left: 721px;
-  position: absolute;
-  top: 207px;
-  width: 302px;
-}
-.homePage .group-3 {
-  height: 362px;
-  left: 45px;
-  position: absolute;
-  top: 180px;
-  width: 815px;
-}
-.homePage.title-bank {
-  height: 134px;
-  left: 42px;
-  position: absolute;
-  top: 0;
-  width: 580px;
-}
-.homePage .text-wrapper {
-  color: #274d74;
-  font-family: "Lexend", Helvetica;
-  font-size: 53.4px;
-  font-weight: 700;
-  height: 134px;
-  left: 42px;
-  letter-spacing: 0.27px;
-  line-height: normal;
-  position: absolute;
-  top: 10px;
-  width: 618px;
-}
-.homePage .description {
-  height: 62px;
-  left: 47px;
-  position: absolute;
-  top: 180px;
-  width: 580px;
-}
-.homePage .p {
-  color: #6c6e6f;
-  font-family: "Lexend", Helvetica;
-  font-size: 28px;
-  font-weight: 400;
-  height: 66px;
-  left: 0;
-  letter-spacing: -0.42px;
-  line-height: 41.2px;
-  position: absolute;
-  top: -30px;
-  width: 580px;
-}
-.homePage .validate {
-  height: 109px;
-  left: 0;
-  position: absolute;
-  top: 200px;
-  width: 470px;
-}
-.homePage .upload {
-  height: 60px;
-  left: 93px;
-  position: absolute;
-  top: 40px;
-  width: 145px;
-}
-.homePage .overlap-group {
-  background-color: #0f65b2;
-  border-radius: 47.38px;
-  height: 60px;
-  position: relative;
-  width: 143px;
-}
-.homePage .overlap-group:hover {
-  background-color: #0c4b87; /* Change the background color on hover */
-  cursor: pointer; /* Add cursor pointer on hover */
-}
-.homePage .text-wrapper-2 {
-  color: #ffffff;
-  font-family: "Lexend", Helvetica;
-  font-size: 17.2px;
-  font-weight: 400;
-  height: 22px;
-  left: 45px;
-  letter-spacing: -0.26px;
-  line-height: normal;
-  position: absolute;
-  top: 20px;
-  width: 59px;
-}
-.homePage .check {
-  height: 60px;
-  left: 327px;
-  position: absolute;
-  top: 40px;
-  width: 145px;
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
-.homePage .status-message {
-  position: absolute;
-  top: 320px;
-  left: 200px;
-  font-family: "Lexend", Helvetica;
-  font-size: 17.2px;
-  font-weight: 400;
-  height: 22px;
-  letter-spacing: -0.26px;
-  line-height: normal;
-  position: absolute;
+.button-36 {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-.homePage .iconphone {
-  height: 294px;
-  left: 530px;
-  position: absolute;
-  top: 365px;
-  width: 352px;
+
+.button-36:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
 }
-.homePage .ellipse-4 {
-  background-color: #2384e9;
-  border-radius: 105px;
-  height: 210px;
-  left: 545px;
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-  width: 210px;
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
 }
-.homePage .overlap-group2 {
-  height: 400px;
-  left: 18px;
-  position: absolute;
-  top: 40px;
-  width: 333px;
+
+.status-message {
+  margin-top: 30px;
 }
-.homePage .icon-bank {
-  height: 370px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 333px;
+
+.error-message {
+  color: red;
 }
-.homePage .img {
-  height: 100px;
-  left: 122px;
-  position: absolute;
-  top: 360px;
-  width: 70px;
-}
-.homePage .ellipse-1 {
-  background-color: #2384e9;
-  border-radius: 105px;
-  height: 200px;
-  left: -96px;
-  opacity: 0.2;
-  position: absolute;
-  top: 330px;
-  width: 210px;
+.success-message {
+  color: green;
 }
