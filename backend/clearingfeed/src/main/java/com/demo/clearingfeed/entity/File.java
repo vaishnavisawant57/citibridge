@@ -6,11 +6,15 @@ import jakarta.persistence.Id;
 @Entity
 public class File {
 	@Id
-	String fileName;
-	String fileStatus;
+	int refFileId;
 	String uploadDate;
+	String fileStatus;
+	String fileName;
 	
-	public File(String fileName,String uploadDate,String fileStatus) {
+	
+	
+	public File(int refFileId,String fileName,String uploadDate,String fileStatus) {
+		this.refFileId=refFileId;
 		this.fileName=fileName;
 		this.fileStatus=fileStatus;
 		this.uploadDate=uploadDate;
@@ -41,5 +45,11 @@ public class File {
 	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
 	}
+	public int getRefFileId() {
+		return refFileId;
+	}
 
+	public void setRefFileId(int refFileId) {
+		this.refFileId = refFileId;
+	}
 }

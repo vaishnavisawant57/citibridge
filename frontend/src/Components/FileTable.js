@@ -5,6 +5,7 @@ const FileTable = ({ files }) => {
     <table className="styled-table">
       <thead>
         <tr>
+          <th>File Ref Id</th>
           <th>File Name</th>
           <th>Uploaded On</th>
           <th>Status</th>
@@ -14,6 +15,7 @@ const FileTable = ({ files }) => {
         {files.map((file, index) => {
           return (
             <tr key={index}>
+              <td>{file.refFileId}</td>
               <td>{file.fileName}</td>
               <td>{file.uploadDate}</td>
               <td>{file.fileStatus}</td>

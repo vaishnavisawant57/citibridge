@@ -34,7 +34,7 @@ public class TransactionController {
 	private TransactionService transactionservice;
 	@Autowired
 	private FileService fileService;
-	
+	private int fileCount=1;
 	ArrayList<ArrayList<Transaction>> validatedTransactions = new ArrayList<ArrayList<Transaction>>();
 
 	@PostMapping("/transaction/upload")
@@ -51,7 +51,8 @@ public class TransactionController {
 	 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	 		String currentDate = formatter.format(dateObj);
 	 		
-	 		File newFile=new File(fileName,currentDate,"Validated");
+	 		File newFile=new File(fileCount,fileName,currentDate,"Validated");
+	 		fileCount++;
 			this.fileService.save(newFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
