@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as GrIcons from "react-icons/gr";
 import * as BsIcons from "react-icons/bs";
@@ -7,7 +6,7 @@ export const SidebarData = [
   {
     title: "Upload File",
     path: "/",
-    icons: <AiIcons.AiFillHome />,
+    icons: <BsIcons.BsFileArrowUp />,
     cName: "nav-text",
   },
   {
@@ -31,7 +30,7 @@ export const SidebarData = [
   {
     title: "File Status",
     path: "/filestatus",
-    icons: <BsIcons.BsCheckAll />,
+    icons: <BsIcons.BsFileCheck />,
     cName: "nav-text",
   },
 ];

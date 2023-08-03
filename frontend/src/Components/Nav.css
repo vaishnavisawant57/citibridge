@@ -1,0 +1,86 @@
+/* Horizontal navigation bar styles */
+.nav-menu {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.nav-menu-items {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 16px;
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Add space between icon and title */
+.nav-text span {
+  margin-left: 8px; /* Adjust this value to increase or decrease the space */
+}
+
+.nav-text:hover {
+  color: #000;
+}
+
+.menu-bars {
+  font-size: 24px;
+  background: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .nav-menu-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active .nav-menu-items {
+    display: flex;
+  }
+
+  .nav-text {
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  .menu-bars {
+    display: block;
+  }
+
+  /* Additional styles for smaller screens */
+  .menu-bars:hover {
+    color: #000;
+  }
+}

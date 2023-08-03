@@ -1,15 +1,23 @@
 /* <button class="button-19" role="button">Button 19</button> */
-
+.base {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: #fff;
+}
 .file-container {
   display: flex;
 }
 .custom-file-upload {
   border: 1px solid #ccc;
-  display: inline-block;
+  display: inline-flex;
   padding: 6px 12px;
   cursor: pointer;
   margin-right: 20px;
   border-radius: 10px;
+  align-items: center;
 }
 
 .button-36 {

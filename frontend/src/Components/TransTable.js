@@ -61,7 +61,7 @@ const TransTable = ({ transaction }) => {
             type="text"
             name="refNumber"
             placeholder="Ref number"
-            value={filters.refNumber}
+            // value={filters.refNumber}
             onChange={handleInputChange}
           />
           <button onClick={handleFilterClick}>
@@ -73,7 +73,7 @@ const TransTable = ({ transaction }) => {
             type="text"
             name="date"
             placeholder="Date"
-            value={filters.date}
+            // value={filters.date}
             onChange={handleInputChange}
           />
           <button onClick={handleFilterClick}>

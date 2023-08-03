@@ -53,16 +53,7 @@ const FileUpload = () => {
 
   // render a simple input element with an onChange event listener that calls the handleFileUpload function
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "85vh",
-        background: "#f0f0f0",
-      }}
-    >
+    <div className="base">
       <div className="file-container ">
         {file && <p>{file.name}</p>}
         <label className="custom-file-upload">
@@ -76,7 +67,7 @@ const FileUpload = () => {
           Upload File
         </label>
         <button onClick={submitFile} className="button-36">
-          Check
+          Validate
         </button>
       </div>
 
