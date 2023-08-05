@@ -15,7 +15,11 @@ const ValidTransactions = () => {
     setTransactions(result.data);
     console.log(result.data);
   };
-  return <TransTable transaction={transactions}></TransTable>;
+  return (
+    <div className="vBase">
+      <TransTable transaction={transactions}></TransTable>
+    </div>
+  );
 };
 
 export default ValidTransactions;

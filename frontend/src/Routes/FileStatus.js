@@ -13,7 +13,11 @@ const FileStatus = () => {
     setFiles(result.data);
     console.log(result.data);
   };
-  return <FileTable files={files}></FileTable>;
+  return (
+    <div className="vBase">
+      <FileTable files={files}></FileTable>
+    </div>
+  );
 };
 
 export default FileStatus;

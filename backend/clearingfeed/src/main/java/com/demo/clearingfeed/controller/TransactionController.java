@@ -45,7 +45,7 @@ public class TransactionController {
 			Path path = Paths.get("src\\main\\resources\\archiveFolder\\"+fileName).toAbsolutePath();
 			file.transferTo(path.toFile());
 			validatedTransactions = transactionservice.validate((ArrayList<Transaction>) transactionservice.getAllTransactions());
-			
+			System.out.print(validatedTransactions);
 			long millis=System.currentTimeMillis();  
 	        Date dateObj = new Date(millis);
 	 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -59,7 +59,7 @@ public class TransactionController {
 			e.printStackTrace();
 		}
 		
-		return ResponseEntity.ok(Map.of("message","file is uploaded data is saved to db"));
+		return ResponseEntity.ok(Map.of("message","File validated successfully"));
 		
 		}
 
@@ -72,7 +72,7 @@ public class TransactionController {
 			validatedTransactions.add(new ArrayList<Transaction>());
 			validatedTransactions.add(new ArrayList<Transaction>());
 		}
-			
+//		System.out.print(validatedTransactions.get(0));
 		return validatedTransactions.get(0);
 	}
 	
@@ -84,7 +84,7 @@ public class TransactionController {
 			validatedTransactions.add(new ArrayList<Transaction>());
 			validatedTransactions.add(new ArrayList<Transaction>());
 		}
-			
+//		System.out.print(validatedTransactions.get());
 		return validatedTransactions.get(1);
 	}
 	

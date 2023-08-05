@@ -39,7 +39,7 @@ const AllTransactions = () => {
   };
 
   return (
-    <div>
+    <div className="vBase" style={{ flexDirection: "column" }}>
       <TransTable transaction={trans}></TransTable>
       <CSVLink data={transactions} filename="Feed File">
         <button className="downloadBtn">Download</button>

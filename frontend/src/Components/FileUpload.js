@@ -54,9 +54,9 @@ const FileUpload = () => {
   // render a simple input element with an onChange event listener that calls the handleFileUpload function
   return (
     <div className="base">
-      <div className="file-container ">
-        {file && <p>{file.name}</p>}
-        <label className="custom-file-upload">
+      <div className="file-container">
+        {file && <p className="fileName">{file.name}</p>}
+        <label className="btn uploadBtn center">
           <input
             type="file"
             onChange={handleFileUpload}
@@ -66,22 +66,21 @@ const FileUpload = () => {
           />
           Upload File
         </label>
-        <button onClick={submitFile} className="button-36">
+        <button onClick={submitFile} className="btn validateBtn">
           Validate
         </button>
+        {statusMessage.message && (
+          <p
+            className={`status-message ${
+              statusMessage.status === "success"
+                ? "success-message"
+                : "error-message"
+            }`}
+          >
+            {statusMessage.message}
+          </p>
+        )}
       </div>
-
-      {statusMessage.message && (
-        <p
-          className={`status-message ${
-            statusMessage.status === "success"
-              ? "success-message"
-              : "error-message"
-          }`}
-        >
-          {statusMessage.message}
-        </p>
-      )}
     </div>
   );
 };

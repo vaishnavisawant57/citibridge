@@ -1,6 +1,4 @@
-/* Horizontal navigation bar styles */
 .nav-menu {
-  background-color: #ffffff;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,9 +6,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 70px;
   z-index: 1;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .nav-menu-items {
@@ -18,26 +17,44 @@
   align-items: center;
   list-style: none;
 }
-
+.nav-menu-items a {
+  color: inherit;
+  text-decoration: none;
+}
 .nav-text {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 0 16px;
-  color: #000;
-  font-size: 16px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-/* Add space between icon and title */
 .nav-text span {
-  margin-left: 8px; /* Adjust this value to increase or decrease the space */
+  margin-left: 8px;
 }
 
 .nav-text:hover {
-  color: #000;
+  border-radius: 8px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Set the background color with alpha value for transparency */
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+/* CSS for active navigation item */
+.nav-menu-items a.active {
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 8px 16px;
 }
 
 .menu-bars {
@@ -61,7 +78,7 @@
     top: 60px;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 

@@ -1,5 +1,4 @@
 import * as AiIcons from "react-icons/ai";
-import * as GrIcons from "react-icons/gr";
 import * as BsIcons from "react-icons/bs";
 
 export const SidebarData = [
@@ -12,7 +11,8 @@ export const SidebarData = [
   {
     title: "Valid Transactions",
     path: "/valid",
-    icons: <GrIcons.GrValidate />,
+    // icons: <GrIcons.GrValidate />,
+    icons: <AiIcons.AiOutlineCheckCircle />,
     cName: "nav-text",
   },
   {

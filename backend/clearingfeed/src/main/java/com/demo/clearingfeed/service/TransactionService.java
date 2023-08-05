@@ -185,7 +185,8 @@ public class TransactionService {
 		}
 		validatedTransactions.add(validTransactions);
 		validatedTransactions.add(invalidTransactions);
-
+		System.out.print("Valid"+validatedTransactions.get(0));
+		System.out.print("Invalid"+validatedTransactions.get(1));
 		//save all valid transactions to database
 		saveValidTransactions(validTransactions);
 		return validatedTransactions;
