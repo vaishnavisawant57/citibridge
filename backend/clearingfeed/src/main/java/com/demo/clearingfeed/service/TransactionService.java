@@ -32,6 +32,7 @@ public class TransactionService {
 	List<TargetEntity> prevTransactions=new ArrayList<TargetEntity>();
 	@Autowired
 	private TargetRepository targetRepo;
+	Transaction transaction;
 
 	public void save(MultipartFile file) 
 	{
@@ -53,7 +54,7 @@ public class TransactionService {
 		return this.transactionRepo.findAll();
 	}
 	
-	public boolean isValid(Transaction transaction) {
+	public String isValid(Transaction transaction) {
 
 		// TODO validate each parameter of a transaction object 
 		String refNo = transaction.getTransaction_ref_no();
@@ -63,6 +64,7 @@ public class TransactionService {
 		String payeeAccount = transaction.getPayee_account();
 		String payeeName = transaction.getPayee_name();
 		double amount = Double.parseDouble(transaction.getAmount());
+		String reason;
 		
 		//prevTransactions=targetService.getAllTransactions();
 
@@ -71,8 +73,8 @@ public class TransactionService {
 		{
 			if(i.getTransaction_ref_no()==refNo)
 			{
-				System.out.println("Invalid Reference Number");
-				return false;
+				reason="Invalid Reference Number";
+				return reason;
 			}
 		}		
 		
@@ -82,8 +84,8 @@ public class TransactionService {
 		if(!(matcher1.matches()))
 		{
 			System.out.println(refNo);
-			System.out.println("Invalid Reference Number");
-			return false;
+			reason="Invalid Reference Number";
+			return reason;
 		}
 
 		//validate date
@@ -95,8 +97,8 @@ public class TransactionService {
 		if(!(currentDate.equals(date)))
 		{
 			System.out.println(date);
-			System.out.println("Invalid Transaction Date");
-			return false;
+			reason="Invalid Transaction Date";
+			return reason;
 		}
 			
 		//validate payer name
@@ -105,8 +107,8 @@ public class TransactionService {
 		if(!(matcher2.matches()))
 		{
 			System.out.println(payerName);
-			System.out.println("Invalid Payer Name");
-			return false;
+			reason="Invalid Payer Name";
+			return reason;
 		}
 
 		//validate payer account no
@@ -114,8 +116,8 @@ public class TransactionService {
 		if(!(matcher3.matches()))
 		{
 			System.out.println(payeeAccount);
-			System.out.println("Invalid Payer Account");
-			return false;
+			reason="Invalid Payer Account";
+			return reason;
 		}
 		
 		//validate payee name
@@ -123,8 +125,8 @@ public class TransactionService {
 		if(!(matcher4.matches()))
 		{
 			System.out.println(payeeName);
-			System.out.println("Invalid Payee Name");
-			return false;
+			reason="Invalid Payee Name";
+			return reason;
 		}
 
 		//validate payee account no
@@ -132,8 +134,8 @@ public class TransactionService {
 		if(!(matcher5.matches()))
 		{
 			System.out.println(payeeAccount);
-			System.out.println("Invalid Payee Account");
-			return false;
+			reason="Invalid Payee Account";
+			return reason;
 		}
 		
 		//validate amount
@@ -144,11 +146,11 @@ public class TransactionService {
 		if(!matcher6.matches() || amount<0)
 		{
 			System.out.println(amount);
-			System.out.println("Invalid Amount");
-			return false;
+			reason="Invalid Amount";
+			return reason;
 		}
 		
-		return true;
+		return null;
 	}
 	
 	public ArrayList<ArrayList<Transaction>> validate(ArrayList<Transaction> allTransactions) throws IOException{
@@ -160,26 +162,31 @@ public class TransactionService {
 	
 		for(int i=1;i<allTransactions.size();i++)
 		{
-			Transaction transaction=allTransactions.get(i);
-			if(isValid(transaction))
+			transaction=allTransactions.get(i);
+			if(isValid(transaction)==null)
 			{
-				//validate refNo - unique in current file 
-				boolean flag = true;
-				for(int j=0;j<i;j++)
-				{
-					if(transaction.getTransaction_ref_no().equals(allTransactions.get(j).getTransaction_ref_no()))
-					{
-						invalidTransactions.add(transaction);
-						System.out.println("Invalid Reference Number");
-						flag = false;
-						break;
-					}
-				}
-				if(flag)
-					validTransactions.add(transaction);
+//				//validate refNo - unique in current file 
+//				boolean flag = true;
+//				for(int j=0;j<i;j++)
+//				{
+//					if(transaction.getTransaction_ref_no().equals(allTransactions.get(j).getTransaction_ref_no()))
+//					{
+//						invalidTransactions.add(transaction);
+//						System.out.println("Invalid Reference Number");
+//						flag = false;
+//						break;
+//					}
+//				}
+				//if(flag)
+				//{
+				transaction.setReason(null);
+				validTransactions.add(transaction);
+				//}
+					
 			}
 			else
 			{
+				transaction.setReason(isValid(transaction));
 				invalidTransactions.add(transaction);
 			}
 		}

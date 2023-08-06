@@ -14,9 +14,10 @@ public class Transaction {
 	private String payee_account;
 	private String payee_name;
 	private String amount;
+	private String reason;
 	
 	public Transaction(String transaction_ref_no, String date, String payer_account, String payer_name,
-			String payee_account, String payee_name, String amount) {
+			String payee_account, String payee_name, String amount, String reason) {
 		
 		this.transaction_ref_no = transaction_ref_no;
 		this.date = date;
@@ -25,8 +26,17 @@ public class Transaction {
 		this.payee_account = payee_account;
 		this.payee_name = payee_name;
 		this.amount = amount;
+		this.reason = reason;
 	}
 	
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
 	public Transaction() {
 		
 		
