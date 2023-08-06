@@ -12,7 +12,7 @@ import Home from "./Routes/Home";
 import Invalid from "./Routes/Invalid";
 import All from "./Routes/All";
 import FileStatus from "./Routes/FileStatus";
-import Navbar from "./Components/navs";
+import Navbar from "./Components/NavBar/navs";
 import "./App.css";
 
 const AppLayout = () => (

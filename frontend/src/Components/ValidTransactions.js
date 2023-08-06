@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import TransTable from "./TransTable";
+import TransTable from "./Tables/TransTable";
 const ValidTransactions = () => {
   const [transactions, setTransactions] = React.useState([]);
 

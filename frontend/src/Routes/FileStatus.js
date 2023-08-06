@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import FileTable from "../Components/FileTable";
+import FileTable from "../Components/Tables/FileTable";
 const FileStatus = () => {
   const [files, setFiles] = React.useState([]);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import TransTable from "./TransTable";
+import InvalidTransTable from "./Tables/InvalidTransTable";
 const InvalidTransactions = () => {
   const [transactions, setTransactions] = React.useState([]);
 
@@ -17,7 +17,7 @@ const InvalidTransactions = () => {
   };
   return (
     <div className="vBase">
-      <TransTable transaction={transactions}></TransTable>
+      <InvalidTransTable transaction={transactions}></InvalidTransTable>
     </div>
   );
 };

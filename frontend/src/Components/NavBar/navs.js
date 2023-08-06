@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { SidebarData } from "./SidebarData";
-import "../Components/Nav.css";
+import { SidebarData } from "../SidebarData";
+import "../NavBar/Nav.css";
 import { IconContext } from "react-icons";
 import { Link, useLocation } from "react-router-dom";
 
