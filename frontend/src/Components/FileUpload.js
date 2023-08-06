@@ -59,6 +59,7 @@ const FileUpload = () => {
         <label className="btn uploadBtn center">
           <input
             type="file"
+            accept=".xls, .xlsx"
             onChange={handleFileUpload}
             style={{
               display: "none",

@@ -58,9 +58,7 @@ public class TransactionController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return ResponseEntity.ok(Map.of("message","File validated successfully"));
-		
 		}
 
 	
