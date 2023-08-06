@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+.chart-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  width: 35vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
+  padding: 5px;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}

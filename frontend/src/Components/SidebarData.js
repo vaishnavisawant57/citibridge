@@ -33,4 +33,10 @@ export const SidebarData = [
     icons: <BsIcons.BsFileCheck />,
     cName: "nav-text",
   },
+  {
+    title: "Data Visualization",
+    path: "/datavisualization",
+    icons: <BsIcons.BsBarChartSteps />,
+    cName: "nav-text",
+  },
 ];

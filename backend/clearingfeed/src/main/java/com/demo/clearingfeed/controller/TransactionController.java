@@ -91,5 +91,39 @@ public class TransactionController {
 	{
 		return this.fileService.getAllFiles();
 	}
+	@GetMapping("/GetTransNumberPerReason")
+	public ArrayList<Integer> getTransactionCountPerReason()
+	{
+		ArrayList<Integer> transactionCount = new ArrayList<Integer>();
+		for(int i=0;i<9;i++)
+		{
+			transactionCount.add(0);
+		}
+		int numberOfValid = validatedTransactions.isEmpty() ? 0 : validatedTransactions.get(0).size();
+		int numberOfInvalid = validatedTransactions.isEmpty() ? 1 : validatedTransactions.get(1).size();
+		
+		for(int i=0;i<validatedTransactions.get(1).size();i++)
+		{
+			if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Reference Number"))
+				transactionCount.set(0, transactionCount.get(0)+1);
+			else if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Transaction Date"))
+				transactionCount.set(1, transactionCount.get(1)+1);
+			else if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Payer Name"))
+				transactionCount.set(2, transactionCount.get(2)+1);
+			else if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Payer Account"))
+				transactionCount.set(3, transactionCount.get(3)+1);
+			else if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Payee Name"))
+				transactionCount.set(4, transactionCount.get(4)+1);
+			else if(validatedTransactions.get(1).get(i).getReason().equals("Invalid Payee Account"))
+				transactionCount.set(5, transactionCount.get(5)+1);
+			else 
+				transactionCount.set(6, transactionCount.get(6)+1);
+		}
+		
+		
+		transactionCount.set(7, numberOfValid);
+		transactionCount.set(8, numberOfInvalid);
+		
+		return transactionCount;
+	}
 }
-
