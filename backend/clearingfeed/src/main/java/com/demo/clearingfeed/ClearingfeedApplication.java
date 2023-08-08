@@ -12,7 +12,7 @@ public class ClearingfeedApplication {
 		SpringApplication.run(ClearingfeedApplication.class, args);
 		
 		
-       System.out.println("Runing");
+       System.out.println("Running");
 	}
 
 }

@@ -66,8 +66,7 @@ public class TransactionService {
 		double amount = Double.parseDouble(transaction.getAmount());
 		String reason;
 		
-		//prevTransactions=targetService.getAllTransactions();
-
+		
 		//validate if refNo is unique 
 		for(TargetEntity i:prevTransactions)
 		{
@@ -143,7 +142,7 @@ public class TransactionService {
 		Pattern pattern3 = Pattern.compile(regex);
 		String amounts = new DecimalFormat("#.00#").format(amount);
 		Matcher matcher6 = pattern3.matcher(amounts);
-		if(!matcher6.matches() || amount<0)
+		if(!matcher6.matches() || amount<=0)
 		{
 			System.out.println(amount);
 			reason="Invalid Amount";
@@ -165,23 +164,8 @@ public class TransactionService {
 			transaction=allTransactions.get(i);
 			if(isValid(transaction)==null)
 			{
-//				//validate refNo - unique in current file 
-//				boolean flag = true;
-//				for(int j=0;j<i;j++)
-//				{
-//					if(transaction.getTransaction_ref_no().equals(allTransactions.get(j).getTransaction_ref_no()))
-//					{
-//						invalidTransactions.add(transaction);
-//						System.out.println("Invalid Reference Number");
-//						flag = false;
-//						break;
-//					}
-//				}
-				//if(flag)
-				//{
 				transaction.setReason(null);
 				validTransactions.add(transaction);
-				//}
 					
 			}
 			else
