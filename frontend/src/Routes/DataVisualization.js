@@ -1,5 +1,6 @@
 import React from "react";
 import "./DataVisualization.css";
+import Navbar from "../Components/NavBar/navs";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -83,47 +84,50 @@ const DataVisualization = () => {
     }
   };
   return (
-    <div className="vBase">
-      <div className="chart-container">
-        <Doughnut
-          className="chart"
-          data={data1}
-          options={{
-            plugins: {
-              legend: {
-                position: "top",
+    <div>
+      <Navbar />
+      <div className="vBase">
+        <div className="chart-container">
+          <Doughnut
+            className="chart"
+            data={data1}
+            options={{
+              plugins: {
+                legend: {
+                  position: "top",
+                },
+                title: {
+                  display: true,
+                  text: "Valid vs Invalid Records",
+                  font: { size: 16 },
+                },
               },
-              title: {
-                display: true,
-                text: "Valid vs Invalid Records",
-                font: { size: 16 },
+            }}
+          />
+        </div>
+        <div className="chart-container">
+          <Bar
+            className="chart"
+            data={data2}
+            options={{
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                title: {
+                  display: true,
+                  text: "Reasons for Invalid Transactions",
+                  font: { size: 16 },
+                },
               },
-            },
-          }}
-        />
-      </div>
-      <div className="chart-container">
-        <Bar
-          className="chart"
-          data={data2}
-          options={{
-            plugins: {
-              legend: {
-                display: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
               },
-              title: {
-                display: true,
-                text: "Reasons for Invalid Transactions",
-                font: { size: 16 },
-              },
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
     </div>
   );

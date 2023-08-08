@@ -39,4 +39,10 @@ export const SidebarData = [
     icons: <BsIcons.BsBarChartSteps />,
     cName: "nav-text",
   },
+  {
+    title: "Log Out",
+    path: "/signin",
+    icons: <AiIcons.AiOutlineLogout />,
+    cName: "nav-text",
+  },
 ];

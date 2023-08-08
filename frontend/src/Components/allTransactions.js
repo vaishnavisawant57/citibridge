@@ -42,7 +42,7 @@ const AllTransactions = () => {
     <div className="vBase" style={{ flexDirection: "column" }}>
       <TransTable transaction={trans}></TransTable>
       <CSVLink data={transactions} filename="Feed File">
-        <button className="downloadBtn">Download</button>
+        <button className="downloadBtn">Export</button>
       </CSVLink>
     </div>
   );

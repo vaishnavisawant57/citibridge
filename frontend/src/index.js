@@ -12,13 +12,13 @@ import Home from "./Routes/Home";
 import Invalid from "./Routes/Invalid";
 import All from "./Routes/All";
 import FileStatus from "./Routes/FileStatus";
-import Navbar from "./Components/NavBar/navs";
 import DataVisualization from "./Routes/DataVisualization";
+import SignIn from "./Components/Authentication/SignIn";
+import SignUp from "./Components/Authentication/SignUp";
 import "./App.css";
 
 const AppLayout = () => (
   <>
-    <Navbar />
     <Outlet />
   </>
 );
@@ -32,6 +32,8 @@ const router = createBrowserRouter(
       <Route path="/all" element={<All />} />
       <Route path="/filestatus" element={<FileStatus />} />
       <Route path="/datavisualization" element={<DataVisualization />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Route>
   )
 );
@@ -64,6 +66,14 @@ const router = createBrowserRouter(
   {
     path: "datavisualization",
     element: <DataVisualization />,
+  },
+  {
+    path: "signin",
+    element: <SignIn />,
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
   },
 ]
   }

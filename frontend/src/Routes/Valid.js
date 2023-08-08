@@ -1,6 +1,12 @@
 import React from "react";
 import ValidTransaction from "../Components/ValidTransactions.js";
-function All() {
-  return <ValidTransaction />;
+import Navbar from "../Components/NavBar/navs";
+function Valid() {
+  return (
+    <div>
+      <Navbar />
+      <ValidTransaction />
+    </div>
+  );
 }
-export default All;
+export default Valid;

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import FileTable from "../Components/Tables/FileTable";
+import Navbar from "../Components/NavBar/navs";
 const FileStatus = () => {
   const [files, setFiles] = React.useState([]);
 
@@ -14,8 +15,11 @@ const FileStatus = () => {
     console.log(result.data);
   };
   return (
-    <div className="vBase">
-      <FileTable files={files}></FileTable>
+    <div>
+      <Navbar />
+      <div className="vBase">
+        <FileTable files={files}></FileTable>
+      </div>
     </div>
   );
 };
